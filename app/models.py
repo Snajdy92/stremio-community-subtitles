@@ -49,12 +49,12 @@ class GUID(TypeDecorator):
             # dla MySQL konwertujemy do stringa 36 znaków
             return str(value)
 
-    def process_result_value(self, value, dialect):
+def process_result_value(self, value, dialect):
         if value is None:
             return value
         if isinstance(value, uuid.UUID):
-    return value
-return uuid.UUID(str(value))
+            return value
+        return uuid.UUID(str(value))
 
 
 class JSONType(TypeDecorator):
